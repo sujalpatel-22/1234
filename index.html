@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced School Admission Form</title>
+    <style>
+        /* Add your custom CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Advanced School Admission Form</h1>
+    <form id="admissionForm" action="submit.php" method="post">
+        <fieldset>
+            <legend>Student Information</legend>
+            <label for="student_name">Student Name:</label>
+            <input type="text" id="student_name" name="student_name" required><br><br>
+
+            <label for="date_of_birth">Date of Birth:</label>
+            <input type="date" id="date_of_birth" name="date_of_birth" required><br><br>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Parent/Guardian Information</legend>
+            <label for="parent_name">Parent/Guardian Name:</label>
+            <input type="text" id="parent_name" name="parent_name" required><br><br>
+
+            <label for="contact_number">Contact Number:</label>
+            <input type="tel" id="contact_number" name="contact_number" pattern="[0-9]{10}" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Address Information</legend>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Previous School Information</legend>
+            <label for="previous_school">Previous School (if any):</label>
+            <input type="text" id="previous_school" name="previous_school"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Information</legend>
+            <label for="comments">Comments/Additional Information:</label>
+            <textarea id="comments" name="comments" rows="4"></textarea><br><br>
+
+            <label for="attachments">Upload Documents:</label>
+            <input type="file" id="attachments" name="attachments" multiple><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Sibling Information</legend>
+            <label for="has_sibling">Does the student have a sibling in the school?</label>
+            <input type="checkbox" id="has_sibling" name="has_sibling"><br><br>
+
+            <div id="sibling_info" style="display: none;">
+                <label for="sibling_name">Sibling's Name:</label>
+                <input type="text" id="sibling_name" name="sibling_name"><br><br>
+
+                <label for="sibling_grade">Sibling's Grade:</label>
+                <input type="text" id="sibling_grade" name="sibling_grade"><br><br>
+            </div>
+        </fieldset>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        const hasSiblingCheckbox = document.getElementById("has_sibling");
+        const siblingInfo = document.getElementById("sibling_info");
+
+        hasSiblingCheckbox.addEventListener("change", function () {
+            siblingInfo.style.display = hasSiblingCheckbox.checked ? "block" : "none";
+        });
+    </script>
+</body>
+</html>
+
